@@ -1,3 +1,5 @@
+const { join } = require('path');
+
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -5,6 +7,11 @@ module.exports = {
   context: __dirname,
   externals: {},
   devtool: 'source-map',
+  resolve: {
+    alias: {
+      prelude: join(__dirname, './src/prelude/'),
+    },
+  },
   devServer: {
     port: 1337,
     historyApiFallback: true,

@@ -11,4 +11,7 @@ module.exports = {
     'no-invalid-this': 'off',
     'babel/no-invalid-this': 'error',
   },
+  settings: {
+    'import/resolver': 'webpack',
+  },
 };
