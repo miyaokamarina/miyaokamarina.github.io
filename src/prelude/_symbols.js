@@ -19,6 +19,7 @@ export const $IsExtend = Symbol('[[IsExtend]]');
 export const $IsFilterable = Symbol('[[IsFilterable]]');
 export const $IsFoldable = Symbol('[[IsFoldable]]');
 export const $IsFunctor = Symbol('[[IsFunctor]]');
+export const $IsGetter = Symbol('[[IsGetter]]');
 export const $IsGroup = Symbol('[[IsGroup]]');
 export const $IsMonad = Symbol('[[IsMonad]]');
 export const $IsMonoid = Symbol('[[IsMonoid]]');
@@ -29,6 +30,7 @@ export const $IsProfunctor = Symbol('[[IsProfunctor]]');
 export const $IsSemigroup = Symbol('[[IsSemigroup]]');
 export const $IsSemigroupoid = Symbol('[[IsSemigroupoid]]');
 export const $IsSetoid = Symbol('[[IsSetoid]]');
+export const $IsSetter = Symbol('[[IsSetter]]');
 export const $IsTraversable = Symbol('[[IsTraversable]]');
 
 export const $Type = Symbol('[[Type]]');
