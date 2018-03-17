@@ -35,10 +35,10 @@ module.exports = {
             loader: 'babel-loader',
             options: { cacheDirectory: true },
           },
-          {
-            loader: 'eslint-loader',
-            options: { emitError: true },
-          },
+          // {
+          //   loader: 'eslint-loader',
+          //   options: { emitError: true },
+          // },
         ],
       },
     ],
