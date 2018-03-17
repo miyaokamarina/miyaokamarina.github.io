@@ -1,12 +1,10 @@
 import { always } from 'prelude/always';
 import { curry } from 'prelude/curry';
-import { id } from 'prelude/id';
 
 import { isArray } from 'prelude/pred/isArray';
 import { isString } from 'prelude/pred/isString';
 
-import { Match } from 'prelude/types/Match';
-import { maybe } from 'prelude/types/Maybe';
+import { match } from 'prelude/types/Match';
 
 /**
  * Get all elements of an array except last
@@ -16,7 +14,7 @@ import { maybe } from 'prelude/types/Maybe';
  * @param {*} x target array
  * @returns {*}
  */
-export const init = curry(x => maybe(x, id, Match(
+export const init = curry(x => match(x).of(
   [isArray, always(x.slice(0, -1))],
   [isString, always(x.slice(0, -1))],
-).run(x)));
+).else(x));

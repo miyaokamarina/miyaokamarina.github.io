@@ -5,6 +5,8 @@ import { tail } from 'prelude/tail';
 
 import { isNil } from 'prelude/pred/isNil';
 
+// TODO: Use `match`.
+
 export const path = curry((...segments) => curry(x => {
   if (isNil(segments)) {
     return x;

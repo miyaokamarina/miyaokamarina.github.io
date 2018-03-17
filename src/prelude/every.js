@@ -1,13 +1,11 @@
 import { curry } from 'prelude/curry';
-import { id } from 'prelude/id';
 
 import { isArray } from 'prelude/pred/isArray';
 import { isString } from 'prelude/pred/isString';
 
-import { Match } from 'prelude/types/Match';
-import { maybe } from 'prelude/types/Maybe';
+import { match } from 'prelude/types/Match';
 
-export const every = curry((f, xs) => maybe(false, id, Match(
+export const every = curry((f, xs) => match(xs).of(
   [isArray, () => xs.every(f)],
   [isString, () => [...xs].every(f)],
-).run(xs)));
+).else(false));

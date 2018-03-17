@@ -1,9 +1,7 @@
 import { curry } from 'prelude/curry';
-import { id } from 'prelude/id';
 
 import { isGetter } from 'prelude/pred/isGetter';
 
-import { Match } from 'prelude/types/Match';
-import { maybe } from 'prelude/types/Maybe';
+import { match } from 'prelude/types/Match';
 
-export const get = curry((l, x) => maybe(x, id, Match([isGetter, () => l.get(x)]).run(l)));
+export const get = curry((l, x) => match(l).of([isGetter, () => l.get(x)]).else(x));

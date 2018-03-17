@@ -1,13 +1,11 @@
 import { always } from 'prelude/always';
 import { curry } from 'prelude/curry';
-import { id } from 'prelude/id';
 
 import { isExtend } from 'prelude/pred/isExtend';
 
-import { Match } from 'prelude/types/Match';
-import { maybe } from 'prelude/types/Maybe';
+import { match } from 'prelude/types/Match';
 
-export const extend = curry((f, fa) => maybe(fa, id, Match(
+export const extend = curry((f, fa) => match(fa).of(
   [isExtend, () => fa.extend(f)],
   [always(true), () => f(fa)],
-).run(fa)));
+).else(fa));
