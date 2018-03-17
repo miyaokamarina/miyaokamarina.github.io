@@ -5,6 +5,7 @@ import { isVal } from 'prelude/pred/isVal';
 
 import { match } from 'prelude/types/Match';
 
+// TODO: Handle negative index.
 // TODO: Handle other indexed structures.
 // TODO: Handle maps.
 
