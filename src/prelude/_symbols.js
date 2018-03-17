@@ -1,0 +1,35 @@
+export const $IsBound = Symbol('[[IsBound]]');
+export const $IsClass = Symbol('[[IsClass]]');
+export const $IsCurried = Symbol('[[IsCurried]]');
+export const $IsInstance = Symbol('[[IsInstance]]');
+export const $IsUnion = Symbol('[[IsUnion]]');
+
+export const $IsAlt = Symbol('[[IsAlt]]');
+export const $IsAlternative = Symbol('[[IsAlternative]]');
+export const $IsApplicative = Symbol('[[IsApplicative]]');
+export const $IsApply = Symbol('[[IsApply]]');
+export const $IsBifunctor = Symbol('[[IsBifunctor]]');
+export const $IsCategory = Symbol('[[IsCategory]]');
+export const $IsChain = Symbol('[[IsChain]]');
+export const $IsChainRec = Symbol('[[IsChainRec]]');
+export const $IsComonad = Symbol('[[IsComonad]]');
+export const $IsContravariant = Symbol('[[IsContravariant]]');
+export const $IsCopointed = Symbol('[[IsCopointed]]');
+export const $IsExtend = Symbol('[[IsExtend]]');
+export const $IsFilterable = Symbol('[[IsFilterable]]');
+export const $IsFoldable = Symbol('[[IsFoldable]]');
+export const $IsFunctor = Symbol('[[IsFunctor]]');
+export const $IsGroup = Symbol('[[IsGroup]]');
+export const $IsMonad = Symbol('[[IsMonad]]');
+export const $IsMonoid = Symbol('[[IsMonoid]]');
+export const $IsOrd = Symbol('[[IsOrd]]');
+export const $IsPlus = Symbol('[[IsPlus]]');
+export const $IsPointed = Symbol('[[IsPointed]]');
+export const $IsProfunctor = Symbol('[[IsProfunctor]]');
+export const $IsSemigroup = Symbol('[[IsSemigroup]]');
+export const $IsSemigroupoid = Symbol('[[IsSemigroupoid]]');
+export const $IsSetoid = Symbol('[[IsSetoid]]');
+export const $IsTraversable = Symbol('[[IsTraversable]]');
+
+export const $Type = Symbol('[[Type]]');
+export const $TypeRep = Symbol('[[TypeRep]]');
