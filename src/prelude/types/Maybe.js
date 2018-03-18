@@ -18,10 +18,10 @@ import {
   $IsBifunctor,
   $IsChain,
   $IsCopointed,
+  $IsEmpty,
   $IsExtend,
   $IsFoldable,
   $IsFunctor,
-  $IsMonoid,
   $IsOrd,
   $IsPlus,
   $IsPointed,
@@ -101,11 +101,11 @@ export class Nothing {
 
 @union(Just, Nothing)
 export class Maybe {
+  static empty = always(Nothing);
   static of = a => Maybe.Just(a);
   static zero = always(Nothing);
-  static empty = always(Nothing);
 
-  static [$IsMonoid] = true;
+  static [$IsEmpty] = true;
   static [$IsPlus] = true;
   static [$IsPointed] = true;
 }

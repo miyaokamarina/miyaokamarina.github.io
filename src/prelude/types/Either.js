@@ -60,7 +60,6 @@ export class Right {
   [$IsFoldable] = true;
   [$IsFunctor] = true;
   [$IsOrd] = true;
-  [$IsPointed] = true;
   [$IsSetoid] = true;
   [$IsTraversable] = true;
 }
@@ -98,7 +97,6 @@ export class Left {
   [$IsFoldable] = true;
   [$IsFunctor] = true;
   [$IsOrd] = true;
-  [$IsPointed] = true;
   [$IsSetoid] = true;
   [$IsTraversable] = true;
 }
@@ -106,4 +104,6 @@ export class Left {
 @union(Right, Left)
 export class Either {
   static of = a => Right(a);
+
+  [$IsPointed] = true;
 }

@@ -9,8 +9,8 @@ import { isRegexp } from 'prelude/pred/isRegexp';
 
 import {
   $IsAlt,
+  $IsEmpty,
   $IsGroup,
-  $IsMonoid,
   $IsPlus,
   $IsSemigroup,
 } from 'prelude/_symbols';
@@ -28,6 +28,9 @@ export class Pred {
   static false = () => Pred(always(false));
   static true = () => Pred(always(true));
   static zero = () => Pred(always(false));
+
+  static [$IsEmpty] = true;
+  static [$IsPlus] = true;
 
   static class = c => Pred(x => x instanceof c);
   static equals = a => Pred(b => equals(a, b));
@@ -70,8 +73,6 @@ export class Pred {
 
   [$IsAlt] = true;
   [$IsGroup] = true;
-  [$IsMonoid] = true;
-  [$IsPlus] = true;
   [$IsSemigroup] = true;
 
   isPred = true;

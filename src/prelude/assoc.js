@@ -8,6 +8,7 @@ import { match } from 'prelude/types/Match';
 // TODO: Handle negative index.
 // TODO: Handle other indexed structures.
 // TODO: Handle maps.
+// TODO: Handle strings.
 
 export const assoc = curry((prop$, value, target) => match(target).of(
   [isArray, () => target.map((x, i) => (i === prop$ ? value : x))],
