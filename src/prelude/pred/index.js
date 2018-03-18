@@ -1,58 +1,11 @@
-export * from './isAlt.js';
-export * from './isAlternative.js';
-export * from './isApplicative.js';
-export * from './isApply.js';
-export * from './isArray.js';
-export * from './isBifunctor.js';
-export * from './isBoolean.js';
-export * from './isBound.js';
-export * from './isCategory.js';
-export * from './isChain.js';
-export * from './isChainRec.js';
-export * from './isClass.js';
-export * from './isComonad.js';
-export * from './isContravariant.js';
-export * from './isContravariant$.js';
-export * from './isCopointed.js';
-export * from './isCurried.js';
-export * from './isElse.js';
-export * from './isEmpty.js';
-export * from './isExtend.js';
-export * from './isFilterable.js';
-export * from './isFinite.js';
-export * from './isFloat.js';
-export * from './isFoldable.js';
-export * from './isFunction.js';
-export * from './isFunctor.js';
-export * from './isFunctor$.js';
-export * from './isGetter.js';
-export * from './isGroup.js';
-export * from './isId.js';
-export * from './isInfinity.js';
-export * from './isInstance.js';
-export * from './isInteger.js';
-export * from './isMonad.js';
-export * from './isMonoid.js';
-export * from './isNan.js';
-export * from './isNil.js';
-export * from './isNull.js';
-export * from './isNumber.js';
-export * from './isObject.js';
-export * from './isOrd.js';
-export * from './isPlus.js';
-export * from './isPointed.js';
-export * from './isPrimitive.js';
-export * from './isProfunctor.js';
-export * from './isProfunctor$.js';
-export * from './isRegexp.js';
-export * from './isSafeInteger.js';
-export * from './isSemigroup.js';
-export * from './isSemigroupoid.js';
-export * from './isSetoid.js';
-export * from './isSetter.js';
-export * from './isString.js';
-export * from './isSymbol.js';
-export * from './isTraversable.js';
-export * from './isUndefined.js';
-export * from './isUnion.js';
-export * from './isVal.js';
+import codegen from 'codegen.macro';
+
+// eslint-disable-next-line
+codegen`
+  module.exports = require('fs').readdirSync(__dirname)
+    .filter(x => x !== 'index.js')
+    .filter(x => !/^[._$]/.test(x))
+    .sort(new Intl.Collator('en', { numeric: true }).compare)
+    .map(x => \`export * from './\${x}';\`)
+    .join('\\n');
+`;

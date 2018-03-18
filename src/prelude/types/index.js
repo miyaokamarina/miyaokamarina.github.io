@@ -1,5 +1,11 @@
-export * from './Either.js';
-export * from './Lens.js';
-export * from './Match.js';
-export * from './Maybe.js';
-export * from './Pred.js';
+import codegen from 'codegen.macro';
+
+// eslint-disable-next-line
+codegen`
+  module.exports = require('fs').readdirSync(__dirname)
+    .filter(x => x !== 'index.js')
+    .filter(x => !/^[._$]/.test(x))
+    .sort(new Intl.Collator('en', { numeric: true }).compare)
+    .map(x => \`export * from './\${x}';\`)
+    .join('\\n');
+`;

@@ -1,45 +1,11 @@
-export * from './alt.js';
-export * from './always.js';
-export * from './ap.js';
-export * from './append.js';
-export * from './arity.js';
-export * from './assoc.js';
-export * from './bimap.js';
-export * from './chain.js';
-export * from './compose.js';
-export * from './concat.js';
-export * from './contramap$.js';
-export * from './curry.js';
-export * from './define.js';
-export * from './equals.js';
-export * from './every.js';
-export * from './extend.js';
-export * from './flip.js';
-export * from './get.js';
-export * from './head.js';
-export * from './id.js';
-export * from './init.js';
-export * from './keys.js';
-export * from './last.js';
-export * from './lte.js';
-export * from './map.js';
-export * from './map$.js';
-export * from './over.js';
-export * from './path.js';
-export * from './pathAssoc.js';
-export * from './pipe.js';
-export * from './pred';
-export * from './prepend.js';
-export * from './promap$.js';
-export * from './prop.js';
-export * from './reduce.js';
-export * from './rep.js';
-export * from './sequence.js';
-export * from './set.js';
-export * from './some.js';
-export * from './supers.js';
-export * from './tail.js';
-export * from './traverse.js';
-export * from './type.js';
-export * from './types';
-export * from './union.js';
+import codegen from 'codegen.macro';
+
+// eslint-disable-next-line
+codegen`
+  module.exports = require('fs').readdirSync(__dirname)
+    .filter(x => x !== 'index.js')
+    .filter(x => !/^[._$]/.test(x))
+    .sort(new Intl.Collator('en', { numeric: true }).compare)
+    .map(x => \`export * from './\${x}';\`)
+    .join('\\n');
+`;
