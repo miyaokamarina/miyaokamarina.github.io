@@ -1,3 +1,3 @@
 # Marina Miyaoka
 
- >  DRUMMING SHINING MY CV.
+# DRUMMING SHINING MY CV
