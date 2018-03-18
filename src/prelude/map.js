@@ -8,8 +8,8 @@ import { match } from 'prelude/types/Match';
 
 // TODO: Define for functions.
 
-export const map = curry((f, xs) => match(xs).of(
-  [isArray, () => xs.map(x => f(x))],
-  [isFunctor, () => xs.map(f)],
-  [isString, () => [...xs].map(x => f(x)).join('')],
-).else(xs));
+export const map = curry((f, fa) => match(fa).of(
+  [isArray, () => fa.map(x => f(x))],
+  [isFunctor, () => fa.map(f)],
+  [isString, () => [...fa].map(x => f(x)).join('')],
+).else(fa));

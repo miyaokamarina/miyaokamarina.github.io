@@ -1,20 +1,13 @@
+import { chain } from 'prelude/chain';
 import { curry } from 'prelude/curry';
 import { head } from 'prelude/head';
 import { prop } from 'prelude/prop';
 import { tail } from 'prelude/tail';
 
-import { isNil } from 'prelude/pred/isNil';
+import { match } from 'prelude/types/Match';
+import { Nothing } from 'prelude/types/Maybe';
 
-// TODO: Use `match`.
-
-export const path = curry((...segments) => curry(x => {
-  if (isNil(segments)) {
-    return x;
-  }
-
-  if (segments.length === 1) {
-    return prop(head(segments), x);
-  }
-
-  return path(...tail(segments))(prop(head(segments), x));
-}));
+export const path = curry((focus, target) => match(focus).of(
+  [() => focus.length === 1, () => prop(head(focus), target)],
+  [() => focus.length > 1, () => chain(path(tail(focus)), prop(head(focus), target))],
+).else(Nothing));

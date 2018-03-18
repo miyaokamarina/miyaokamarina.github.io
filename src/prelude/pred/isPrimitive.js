@@ -7,4 +7,4 @@ import { isString } from 'prelude/pred/isString';
 import { isSymbol } from 'prelude/pred/isSymbol';
 import { isUndefined } from 'prelude/pred/isUndefined';
 
-export const isNil = curry(x => isBoolean(x) || isNull(x) || isNumber(x) || isString(x) || isSymbol(x) || isUndefined(x));
+export const isPrimitive = curry(x => isBoolean(x) || isNull(x) || isNumber(x) || isString(x) || isSymbol(x) || isUndefined(x));
