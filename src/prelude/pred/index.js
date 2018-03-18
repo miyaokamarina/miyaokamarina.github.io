@@ -15,6 +15,7 @@ export * from './isContravariant.js';
 export * from './isContravariant$.js';
 export * from './isCopointed.js';
 export * from './isCurried.js';
+export * from './isElse.js';
 export * from './isEmpty.js';
 export * from './isExtend.js';
 export * from './isFilterable.js';

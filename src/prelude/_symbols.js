@@ -16,6 +16,7 @@ export const $IsComonad = Symbol('[[IsComonad]]');
 export const $IsContravariant = Symbol('[[IsContravariant]]');
 export const $IsContravariant$ = Symbol('[[IsContravariant$]]');
 export const $IsCopointed = Symbol('[[IsCopointed]]');
+export const $IsElse = Symbol('[[IsElse]]');
 export const $IsEmpty = Symbol('[[IsEmpty]]');
 export const $IsExtend = Symbol('[[IsExtend]]');
 export const $IsFilterable = Symbol('[[IsFilterable]]');

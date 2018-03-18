@@ -34,4 +34,4 @@ export const prop = curry((focus, target) => match(target).of(
   [isArray, () => propArray(focus, target)],
   [isString, () => propArray(focus, [...target])],
   [() => !isPrimitive(target), () => propObj(focus, target)],
-).else(Nothing));
+));

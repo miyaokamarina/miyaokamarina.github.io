@@ -7,7 +7,6 @@ import { prop } from 'prelude/prop';
 import { tail } from 'prelude/tail';
 
 import { match } from 'prelude/types/Match';
-import { Nothing } from 'prelude/types/Maybe';
 
 export const pathAssoc = curry((focus, maybeValue, target) => match(focus).of(
   [() => focus.length === 1, () => assoc(head(focus), maybeValue, target)],
@@ -19,4 +18,4 @@ export const pathAssoc = curry((focus, maybeValue, target) => match(focus).of(
     ),
     target,
   )],
-).else(Nothing));
+));

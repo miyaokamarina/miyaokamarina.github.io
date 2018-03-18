@@ -25,7 +25,7 @@ import {
   $IsTraversable,
 } from 'prelude/_symbols';
 
-// TODO: Filter.
+// TODO: Else.
 
 @type
 export class Right {

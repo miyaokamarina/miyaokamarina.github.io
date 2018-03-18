@@ -18,6 +18,7 @@ import {
   $IsBifunctor,
   $IsChain,
   $IsCopointed,
+  $IsElse,
   $IsEmpty,
   $IsExtend,
   $IsFoldable,
@@ -41,6 +42,7 @@ export class Just {
   ap = fab => (fab.isJust ? this.map(fab.a) : this);
   bimap = (f, g) => type(Just)(f(this.a));
   chain = f => f(this.a);
+  else = a => this.a;
   equals = fa => (fa.isJust ? equals(this.a, fa.a) : false);
   extend = f => type(Just)(f(this));
   lte = fa => (fa.isJust ? lte(this.a, fa.a) : false);
@@ -55,6 +57,7 @@ export class Just {
   [$IsBifunctor] = true;
   [$IsChain] = true;
   [$IsCopointed] = true;
+  [$IsElse] = true;
   [$IsExtend] = true;
   [$IsFoldable] = true;
   [$IsFunctor] = true;
@@ -73,6 +76,7 @@ export class Nothing {
   ap = fab => type(Nothing);
   bimap = (f, g) => Just(g());
   chain = f => type(Nothing);
+  else = a => a;
   equals = fa => fa.isNothing;
   extend = f => type(Nothing);
   lte = fa => true;
@@ -87,6 +91,7 @@ export class Nothing {
   [$IsBifunctor] = true;
   [$IsChain] = true;
   [$IsCopointed] = true;
+  [$IsElse] = true;
   [$IsExtend] = true;
   [$IsFoldable] = true;
   [$IsFunctor] = true;

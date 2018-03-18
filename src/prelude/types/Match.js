@@ -1,11 +1,10 @@
 import { always } from 'prelude/always';
 import { curry } from 'prelude/curry';
-import { id } from 'prelude/id';
 import { type } from 'prelude/type';
 
 import { isFunction } from 'prelude/pred/isFunction';
 
-import { Just, Nothing, maybe } from 'prelude/types/Maybe';
+import { Just, Nothing } from 'prelude/types/Maybe';
 import { Pred } from 'prelude/types/Pred';
 
 const prepare = ([p, f]) => {
@@ -54,22 +53,12 @@ export class Match {
 }
 
 @type
-class Else {
-  constructor(x, m) {
-    this.x = x;
-    this.m = m;
-  }
-
-  else = y => maybe(y, id, this.m.run(...this.x));
-}
-
-@type
 class Of {
   constructor(...x) {
     this.x = x;
   }
 
-  of = (...pairs) => Else(this.x, Match(...pairs));
+  of = (...pairs) => Match(...pairs).run(...this.x);
 }
 
 export const match = curry((x, ...xs) => Of(x, ...xs));
