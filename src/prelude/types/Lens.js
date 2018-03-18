@@ -1,4 +1,10 @@
+import { it } from 'param.macro';
+
 import { compose } from 'prelude/compose';
+import { assoc } from 'prelude/assoc';
+import { path } from 'prelude/path';
+import { pathAssoc } from 'prelude/pathAssoc';
+import { prop } from 'prelude/prop';
 import { type } from 'prelude/type';
 
 import {
@@ -6,14 +12,22 @@ import {
   $IsCofunctor,
   $IsCoprofunctor,
   $IsGetter,
+  $IsId,
   $IsSemigroupoid,
   $IsSetter,
 } from 'prelude/_symbols';
 
-// TODO: Prop, path, head, last, id.
+// TODO: Head, last.
 
 @type
 export class Lens {
+  static id = () => Lens(it, it);
+
+  static [$IsId] = true;
+
+  static path = (...path$) => Lens(path(...path$), pathAssoc(...path$));
+  static prop = prop$ => Lens(prop(prop$), assoc(prop$));
+
   constructor(getter, setter) {
     this.g = getter;
     this.s = setter;

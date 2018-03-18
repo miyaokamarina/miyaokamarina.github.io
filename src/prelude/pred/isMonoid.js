@@ -1,7 +1,6 @@
 import { curry } from 'prelude/curry';
 
-import { isInstance } from 'prelude/pred/isInstance';
+import { isEmpty } from 'prelude/pred/isEmpty';
+import { isSemigroup } from 'prelude/pred/isSemigroup';
 
-import { $IsMonoid } from 'prelude/_symbols';
-
-export const isMonoid = curry(x => isInstance(x) && x[$IsMonoid] === true);
+export const isMonoid = curry(x => isEmpty(x) && isSemigroup(x));

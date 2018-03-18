@@ -1,7 +1,6 @@
 import { curry } from 'prelude/curry';
 
-import { isInstance } from 'prelude/pred/isInstance';
+import { isId } from 'prelude/pred/isId';
+import { isSemigroupoid } from 'prelude/pred/isSemigroupoid';
 
-import { $IsCategory } from 'prelude/_symbols';
-
-export const isCategory = curry(x => isInstance(x) && x[$IsCategory] === true);
+export const isCategory = curry(x => isId(x) && isSemigroupoid(x));
